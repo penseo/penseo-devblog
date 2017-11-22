@@ -12,7 +12,16 @@
         </ul>
       </div>
     </div>
-    <router-view/>
+    <main>
+      <router-view/>
+    </main>
+    <footer class="footer">
+      <ul>
+        <li>Impressum</li>
+        <li>www.penseo.de</li>
+        <li>zeuch</li>
+      </ul>
+    </footer>
   </div>
 </template>
 
@@ -35,15 +44,34 @@ html {
   font-size: 62.5%;
 }
 
+main {
+  padding-bottom: 10rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10rem;
+  background-color: white;
+  color: black;
+  box-shadow: inset 0px 1px 4px #032d49;
+  padding: 1rem;
+}
+
 body {
   box-sizing: border-box;
   font-family: "Montserrat", "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem;
+  color: white;
   background-color: #032d49;
   padding-top: 60px;
+}
+
+section {
+  margin: 2rem;
+  padding: 2rem;
 }
 
 .header {
