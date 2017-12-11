@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 const env = require('../config/prod.env')
 
@@ -104,7 +105,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -112,7 +112,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new PrerenderSpaPlugin(
+      config.build.assetsRoot,
+      [ '/', '/posts/Uschi-1', '/posts/Murski-2' ]
+    )
   ]
 })
 
