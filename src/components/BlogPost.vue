@@ -6,22 +6,27 @@
     <section class="content">
       <div class="content--area">
         <h1 class="content--headline" >{{ title }}</h1>
-        <div class="content--body" v-html="body" />
+        <div class="content--body">
+          <Markdown :content="content" />
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import Markdown from '@/components/Markdown';
 import Image from '@/assets/drafts.jpg';
 
 export default {
-  name: 'HelloWorld',
+  components: {
+    Markdown,
+  },
   data() {
     return {
       image: Image,
       title: 'KI zeuch',
-      body: '<a>link</a> moin moin',
+      content: 'hi _ho_',
     };
   },
 };
