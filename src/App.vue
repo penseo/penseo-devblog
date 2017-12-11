@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <div class="navigation">
+      <nav class="navigation">
         <div class="logo">
           <a href="/">penseo</a>
         </div>
@@ -10,9 +10,20 @@
             DevBlog
           </li>
         </ul>
-      </div>
+      </nav>
     </div>
     <main>
+      <div class="selector">
+        <nav class="posts">
+          <ul class="post">
+            <li class="post--item nav--item__active" v-for="[, title, ] in $root.files">
+              <router-link :to="{ name: 'BlogPost', params: { id: `${title}-1`} }">
+                {{ title }}
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <router-view/>
     </main>
     <footer class="footer">
@@ -44,13 +55,7 @@ html {
   font-size: 62.5%;
 }
 
-main {
-  padding-bottom: 10rem;
-}
-
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 10rem;
   background-color: white;

@@ -5,34 +5,41 @@
     </section>
     <section class="content">
       <div class="content--area">
-        <h1 class="content--headline" >{{ title }}</h1>
-        <div class="content--body">
-          <Markdown :content="content" />
-        </div>
+        <div class="content--body" v-html="content" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import Markdown from '@/components/Markdown';
 import Image from '@/assets/drafts.jpg';
 
 export default {
-  components: {
-    Markdown,
-  },
   data() {
     return {
       image: Image,
-      title: 'KI zeuch',
-      content: 'hi _ho_',
+      date: '',
+      title: '',
+      content: '',
     };
+  },
+  mounted() {
+    let file = this.$root.files[0];
+    if (this.$route.params.id) {
+      const splitted = this.$route.params.id.split('-');
+      const id = splitted[splitted.length - 1] - 1;
+      file = this.$root.files[id];
+    }
+    const [date, title, content] = file;
+    this.date = date;
+    this.title = title;
+    this.content = content;
+
+    document.title = title;
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .hero {
   &--image {
