@@ -1,6 +1,6 @@
-# devblog
+# dev-blog
 
-> devblog
+[![CircleCI](https://circleci.com/gh/penseo/penseo-devblog/tree/master.svg?style=svg&circle-token=b0444546c64b010072b7a443ee965bd98516b52f)](https://circleci.com/gh/penseo/penseo-devblog/tree/master)
 
 ## Build Setup
 
@@ -17,5 +17,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
