@@ -120,7 +120,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]),
     new PrerenderSpaPlugin(
       config.build.assetsRoot,
-      ['/'].concat(postUrls),
+      ['/'].concat(postUrls)
     )
   ]
 })
