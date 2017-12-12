@@ -34,7 +34,7 @@ Die Dokumentation der Schnittstellen und die zur verfügung gestellten Bibliothe
 
 ## Anbieter in der Übersicht
 
-Einen allgemeinen Qualitätsvergleich der Anbieter zu erstellen ist schwierig, da sich die Dienste und Bibliotheken stark in den zugrunde liegenden Konzepten unterscheiden. Die Problematik lässt sich gut im Paper *["Evaluating Natural Language Understanding Services for Conversational Question Answering Systems*"](https://www.researchgate.net/publication/319127909_Evaluating_Natural_Language_Understanding_Services_for_Conversational_Question_Answering_Systems) der TU-München nachlesen. Ein objektiver Vergleich in deutscher Sprache wird durch die schwankende Sprachunterstützung noch schwieriger.
+Einen allgemeinen Qualitätsvergleich der Anbieter zu erstellen ist schwierig, da sich die Dienste und Bibliotheken stark in den zugrunde liegenden Konzepten unterscheiden. Die Problematik lässt sich gut im Paper ["Evaluating Natural Language Understanding Services for Conversational Question Answering Systems"](https://www.researchgate.net/publication/319127909_Evaluating_Natural_Language_Understanding_Services_for_Conversational_Question_Answering_Systems) der TU-München nachlesen. Ein objektiver Vergleich in deutscher Sprache wird durch die schwankende Sprachunterstützung noch schwieriger.
 
 Die tatsächliche Qualität der Services lässt sich auch erst mittelfristig, nach dem Training der Machine-Learning-Algorithmen, feststellen. Hier arbeiten die Anbieter mit unterschiedlichen Methoden. Oft ist es möglich interaktiv zu überprüfen wie Texte interpretiert werden.
 

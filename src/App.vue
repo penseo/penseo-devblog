@@ -3,43 +3,31 @@
     <div class="header">
       <nav class="navigation">
         <div class="logo">
-          <a href="/">penseo</a>
+          <a title="Penseo - betriebliche Altersversorgung einfach digital" href="https://www.penseo.de">penseo</a>
         </div>
         <ul class="nav">
           <li class="nav--item nav--item__active">
-            DevBlog
+            <a title="Penseo DevBlog - wir können nicht nur betriebliche Altersversorgung!" href="/">DevBlog</a>
           </li>
         </ul>
       </nav>
     </div>
     <main>
-      <div class="selector">
-        <nav class="posts">
-          <ul class="post">
-            <li class="post--item nav--item__active" v-for="[, title, ] in $root.files">
-              <router-link :to="{ name: 'BlogPost', params: { id: `${title}-1`} }">
-                {{ title }}
-              </router-link>
-            </li>
-          </ul>
-        </nav>
-      </div>
       <router-view/>
     </main>
     <footer class="footer">
-      <ul>
-        <li>Impressum</li>
-        <li>www.penseo.de</li>
-        <li>zeuch</li>
+      <ul class="footer--list">
+        <li class="footer--list-item"><a title="Penseo - betriebliche Altersversorgung einfach digital" href="https://www.penseo.de/">www.penseo.de</a></li>
+        <li class="footer--list-item"><a title="Penseo - Impressum" href="https://www.penseo.de/impressum">Impressum</a></li>
+        <li class="footer--list-item"><a title="Penseo - Themen rund um die betrieblichen Altersversorgung - Pflicht zur betrieblichen Altersversorgung?" href="https://www.penseo.de/themen">Themen</a></li>
+        <li class="footer--list-item"><a title="Penseo - Artikel zur betrieblichen Altersversorgung - Ist betriebliche Altersversorgung pflicht?" href="https://www.penseo.de/blog">Artikel</a></li>
       </ul>
     </footer>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-};
+export default {};
 </script>
 
 <style lang="scss">
@@ -55,15 +43,6 @@ html {
   font-size: 62.5%;
 }
 
-footer {
-  width: 100%;
-  height: 10rem;
-  background-color: white;
-  color: black;
-  box-shadow: inset 0px 1px 4px #032d49;
-  padding: 1rem;
-}
-
 body {
   box-sizing: border-box;
   font-family: "Montserrat", "Roboto", Helvetica, Arial, sans-serif;
@@ -72,6 +51,30 @@ body {
   color: white;
   background-color: #032d49;
   padding-top: 60px;
+}
+
+main {
+  min-height: 90vh;
+}
+
+.footer {
+  width: 100%;
+  height: 10rem;
+  background-color: rgb(236, 239, 241);
+  color: black;
+  box-shadow: inset 0px 1px 4px #032d49;
+  padding-top: 2.5rem;
+  font-size: large;
+  a {
+    color: black;
+  }
+  &--list {
+    text-align: center;
+  }
+  &--list-item {
+    display: inline-block;
+    margin: 1rem;
+  }
 }
 
 section {

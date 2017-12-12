@@ -3,9 +3,25 @@
     <section class="hero">
       <img class="hero--image" :src="image" :alt="title" />
     </section>
+    <section class="side-bar">
+      <nav class="side-bar--nav">
+        <ul class="side-bar--nav-list">
+          <li class="side-bar--nav-item side-bar--nav-item__heading">
+            Artikel:
+          </li>
+          <li class="side-bar--nav-item" v-for="[, title, ] in $root.files">
+            <router-link :to="{ name: 'BlogPost', params: { id: `${title}-1`} }">
+              {{ title }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </section>
     <section class="content">
       <div class="content--area">
-        <div class="content--body" v-html="content" />
+        <div class="content--body">
+          <StyledContent :content="content" />
+        </div>
       </div>
     </section>
   </div>
@@ -13,8 +29,10 @@
 
 <script>
 import Image from '@/assets/drafts.jpg';
+import StyledContent from '@/components/StyledContent';
 
 export default {
+  components: { StyledContent },
   data() {
     return {
       image: Image,
@@ -50,19 +68,38 @@ export default {
     border-radius: 3px;
   }
 }
+.side-bar {
+  float: right;
+  width: 25%;
+  padding: 0;
+  padding-left: 3rem;
+  &--nav-list {
+    a {
+      color: white;
+    }
+  }
+  &--nav-item {
+    &__heading {
+      font-size: larger;
+    }
+  }
+}
 .content {
+  width: 75%;
   color: rgba(0, 0, 0, 0.87);
   &--area {
     border-radius: 3px;
     background-color: rgb(236, 239, 241);
     padding: 3rem;
   }
-
-  &--headline {
-    font-size: 3rem;
-  }
   &--body {
-    font-size: 2rem;
+    font-size: 1.5rem;
+
+    a, a:link, a:visited {
+      font-size: 3.5rem;
+      color: blue;
+      text-decoration: none;
+    }
   }
 }
 </style>
