@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const glob = require('glob')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -12,6 +13,10 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 const env = require('../config/prod.env')
+
+const contents = glob.sync('src/content/**/*.md');
+const postUrls = contents.map((file, i) => '/posts/' + file.replace('src/content/', '').replace('.md', '').replace(/(\/|\s)/g, '_') + '-' + (i + 1) );
+console.log('building for the following urls:', postUrls);
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -115,7 +120,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]),
     new PrerenderSpaPlugin(
       config.build.assetsRoot,
-      [ '/', '/posts/Uschi-1', '/posts/Murski-2' ]
+      ['/'].concat(postUrls),
     )
   ]
 })
