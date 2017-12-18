@@ -9,8 +9,8 @@
           <li class="side-bar--nav-item side-bar--nav-item__heading">
             Artikel:
           </li>
-          <li class="side-bar--nav-item" v-for="[, title, ] in $root.files">
-            <router-link :to="{ name: 'BlogPost', params: { id: `${title}-1`} }">
+          <li class="side-bar--nav-item" v-for="[, title, , normalized ] in $root.files">
+            <router-link :to="{ name: 'BlogPost', params: { id: `${normalized}-1`} }">
               {{ title }}
             </router-link>
           </li>

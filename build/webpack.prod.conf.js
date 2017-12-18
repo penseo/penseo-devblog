@@ -2,6 +2,7 @@
 const path = require('path')
 const glob = require('glob')
 const utils = require('./utils')
+const slug = require('slug')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
@@ -15,7 +16,7 @@ var PrerenderSpaPlugin = require('prerender-spa-plugin')
 const env = require('../config/prod.env')
 
 const contents = glob.sync('src/content/**/*.md');
-const postUrls = contents.map((file, i) => '/posts/' + file.replace('src/content/', '').replace('.md', '').replace(/(\/|\s)/g, '_') + '-' + (i + 1) );
+const postUrls = contents.map((file, i) => '/posts/' + slug(file.replace('src/content/', '').replace('.md', '')) + '-' + (i + 1) );
 console.log('building for the following urls:', postUrls);
 
 const webpackConfig = merge(baseWebpackConfig, {
